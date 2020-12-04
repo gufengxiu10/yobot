@@ -1,0 +1,23 @@
+# docker-compose.yml
+version: "3.8"
+# node环境使用172.18.30.0
+# php环境使用172.18.20.0
+# sql球境使用172.18.40.0
+# 服务器环境使用172.18.10.0
+# 消息中间件172.18.50.0
+# mysql集群 172.20.0.0
+services:
+  swoole:
+    container_name: yobot_swoole
+    build:
+      context: ./setting/swoole
+    networks:
+      yobot:
+        ipv4_address: 172.100.12.2
+    volumes:
+      - ./project/www:/var/www
+      - ./setting/swoole/php:/usr/local/etc/php
+networks:
+  yobot:
+    external: true
+    name: yobot
