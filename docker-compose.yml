@@ -15,7 +15,7 @@ services:
       yobot:
         ipv4_address: 172.100.12.2
     volumes:
-      - ./project/www:/var/www
+      - ./project:/var/www
       - ./setting/swoole/php:/usr/local/etc/php
 networks:
   yobot:
